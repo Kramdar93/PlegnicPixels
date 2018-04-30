@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style type= "text/css">
+            *{
+                 box-sizing : border-box;
+             } 
+
+                 body {margin:0;}
+ 
+                .myclass { 
+                    background-image: url("SUNYNewPaltz04.jpg");
+                    background-color: rgba(17, 0, 255, 0.432);
+                    background-position: right top;
+                    list-style-type: none; 
+                    color: rgb(239, 245, 247); 
+                    margin:0;
+                } 
+
+                .myclass li {
+                    display:inline-block;   
+                    width: 200px; 
+                    padding: 10px;
+                }  
+
+                .myclass li:hover { 
+                    background-color: rgb(102, 180, 176); 
+                }
+
+                .myclass ul { 
+                    display: none; 
+                    position: absolute; 
+                    width: 200px; 
+                    margin-left: -10px;
+                    margin-top: 10px;
+                    border: 2px solid rgb(0, 153, 145);  
+                    padding:0; 
+                } 
+
+                .myclass li:hover ul { 
+                    display: block; 
+
+                } 
+        </style> 
+    </head> 
+
+    <body> 
+
+        <ul class="myclass"> 
+
+            <li> 
+                <b>File</b>
+                    <ul> 
+                        <li><a href="#"> New File</a></li> 
+                        <li><a href="#"> New Window</a></li> 
+                        <li><a href="#"> Open File</a></li>
+                        <li><a href="#"> Open Folder</a></li> 
+                        <li><a href="#"> Save As</a></li>
+                    </ul> 
+            </li>
+
+            <li> 
+                <b>Edit</b>
+                    <ul> 
+                        <li><a href="#"> Undo</a></li> 
+                        <li><a href="#"> Redo</a></li> 
+                        <li><a href="#"> Cut</a></li>
+                        <li><a href="#"> Copy</a></li>
+                        <li><a href="#"> Paste</a></li>
+                    </ul> 
+            </li>
+
+            <li>
+                <b>Selection</b>
+                    <ul> 
+                        <li><a href="#"> Select All</a></li> 
+                        <li><a href="#"> Expand Selection</a></li> 
+                        <li><a href="#"> Shrink Selection</a></li>
+                        <li><a href="#"> Copy Line Up</a></li>
+                        <li><a href="#"> Copy Line Down</a></li>
+                    </ul> 
+            </li>
+
+            <li>
+                <b>View</b>
+                    <ul> 
+                        <li><a href="#"> Explorer</a></li> 
+                        <li><a href="#"> Search</a></li> 
+                        <li><a href="#"> SCM</a></li>
+                        <li><a href="#"> Debug</a></li>
+                    </ul> 
+            </li>
+
+            <li>
+                <b>Go</b>
+                    <ul> 
+                        <li><a href="#"> Back</a></li> 
+                        <li><a href="#"> Switch Editor</a></li> 
+                        <li><a href="#"> Switch Group</a></li>
+
+                    </ul> 
+            </li>
+
+        </ul> 
+    </body>
+</html>
