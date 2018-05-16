@@ -1,23 +1,17 @@
 {
-  "name": "plegnicpixels",
+  "name": "plegnic-pixels",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod",
-    "build-dev": "ng build --watch src",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "server": "nodemon server server/index.js --watch server"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
-    "bootstrap": "^4.0.0",
-    "express": "^4.16.2",
-    "jquery": "^3.3.1",
-    "popper.js": "^1.12.9",
     "@angular/animations": "^5.2.0",
     "@angular/common": "^5.2.0",
     "@angular/compiler": "^5.2.0",
@@ -27,6 +21,7 @@
     "@angular/platform-browser": "^5.2.0",
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
+    "bootstrap": "^4.1.1",
     "core-js": "^2.4.1",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.19"
@@ -38,8 +33,6 @@
     "@types/jasmine": "~2.8.3",
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
-    "@types/jquery": "^3.3.0",
-    "nodemon": "^1.15.1",
     "codelyzer": "^4.0.1",
     "jasmine-core": "~2.8.0",
     "jasmine-spec-reporter": "~4.2.1",
