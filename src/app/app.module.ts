@@ -9,9 +9,10 @@ import { HomeComponent } from './home/home.component';
 import { GamesComponent } from './games/games.component';
 import { BlogComponent } from './blog/blog.component';
 import { NavComponent } from './nav/nav.component';
+import { AboutComponent } from './about/about.component';
 
 import { ContentService } from "./services/content.service";
-import { AboutComponent } from './about/about.component';
+import { MockContentService } from "./services/mock-content.service";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { AboutComponent } from './about/about.component';
       {path:"",redirectTo:"home"}
     ])
   ],
-  providers: [ContentService],
+  providers: [{provide:ContentService, useClass:MockContentService}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

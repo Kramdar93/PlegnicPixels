@@ -8,7 +8,7 @@ export class ContentService {
 
   constructor(private http:Http) { }
 
-  GetContent(type:"blog"|"games", id?:string){
+  GetContent(type:"blog"|"game"|"contributor", id?:string){
     return this.http.get(this.CGI,{params:{type:type, id:id}});
   }
 
