@@ -1,28 +1,38 @@
 import { Injectable } from '@angular/core';
 
-import { Observable } from "rxjs/Observable";
-import { of } from "rxjs/Observable/of";
+import { Observable } from "rxjs/observable";
+import { of } from "rxjs/observable/of";
 import { Response, ResponseOptions } from "@angular/http";
+
+//declare require since it'll definitely be there. this is only for dev anyway so it's fine.
+declare var require:any;
 
 //load in test jsons
 var contributors = [require("../../../content/contributors/test.json")]
 var games = [require("../../../content/games/test.json")]
 var blogs = [require("../../../content/blog/test.json")]
+var about = require("../../../content/about/blurb.json")
 
 @Injectable()
 export class MockContentService {
 
   constructor() { }
 
-  GetContent(type:"blog"|"game"|"contributor",id?:string){
+  GetContent(type:"blog"|"game"|"contributor"|"peel"|"about"){
     if(type == "blog"){
-      return this.WrapObj(id? blogs[0] : blogs);
+      return this.WrapObj(blogs);
     }
     else if(type == "game"){
-      return this.WrapObj(id? games[0] : games);
+      return this.WrapObj(games);
     }
-    else{ //contributor
-      return this.WrapObj(id? games[0] : games);
+    else if(type == "contributor"){
+      return this.WrapObj(contributors);
+    }
+    else if(type == "about"){
+      return this.WrapObj(about);
+    }
+    else{ //'peel' ie get the first few of each list (for home)
+      return this.WrapObj({blogs:blogs,games:games});
     }
   }
 

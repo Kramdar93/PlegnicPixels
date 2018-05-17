@@ -1,3 +1,54 @@
-<p>
-  home works!
-</p>
+<div class="row">
+    <h1>{{blurb.heading}}</h1>
+    <p *ngFor="let s of blurb.subsections">
+        <img *ngIf="s.image" [src]="s.image.src" [alt]="s.image.alt" />
+        <span *ngIf="!s.image">{{s}}</span>
+    </p>
+</div>
+
+<div class="row">
+
+<div *ngFor="let g of peels.games" class="col-md-6">
+    <div class="card">
+        <div class="card-header">
+            {{g.title}}
+            <span class="badge badge-primary float-right">{{g.status}}</span>
+        </div>
+        <div class="card-body">
+            <h2>{{g.sections[0].heading}}</h2>
+            <p *ngFor="let s of g.sections[0].subsections">
+                <img *ngIf="s.image" [src]="s.image.src" [alt]="s.image.alt" />
+                <span *ngIf="!s.image">{{s}}</span>
+            </p>
+            <p class="text-muted">. . .</p>
+        </div>
+        <div class="card-footer">
+            release date {{g.releaseDate}}
+        </div>
+    </div>
+</div>
+
+</div>
+
+<div class="row">
+
+<div *ngFor="let b of peels.blogs" class="col-md-6">
+    <div class="card">
+        <div class="card-header">
+            {{b.title}}
+        </div>
+        <div class="card-body">
+            <h2>{{b.sections[0].heading}}</h2>
+            <p *ngFor="let s of b.sections[0].subsections">
+                <img *ngIf="s.image" [src]="s.image.src" [alt]="s.image.alt" />
+                <span *ngIf="!s.image">{{s}}</span>
+            </p>
+            <p class="text-muted">. . .</p>
+        </div>
+        <div class="card-footer">
+            posted on {{b.date}}
+        </div>
+    </div>
+</div>
+
+</div>

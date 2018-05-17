@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ContentService } from '../services/content.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -7,7 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  peels:any;
+  blurb:any;
+
+  constructor(private content:ContentService) {
+    content.GetContent("peel").subscribe(data=> this.peels=data.json() );
+    content.GetContent("about").subscribe(data=> this.blurb=data.json().sections[0] );
+   }
 
   ngOnInit() {
   }
