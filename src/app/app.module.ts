@@ -30,7 +30,8 @@ import { MockContentService } from "./services/mock-content.service";
       {path:"home",component:HomeComponent},
       {path:"blog",component:BlogComponent},
       {path:"games",component:GamesComponent},
-      {path:"",redirectTo:"home"}
+      {path:"about",component:AboutComponent},
+      {path:"",redirectTo:"home",pathMatch:"full"}
     ])
   ],
   providers: [{provide:ContentService, useClass:MockContentService}],

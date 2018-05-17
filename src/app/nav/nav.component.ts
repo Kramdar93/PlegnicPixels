@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ContentService } from '../services/content.service';
+
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
@@ -7,7 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  constructor() { }
+  //games:any;
+
+  constructor(private content:ContentService) {
+    //content.GetContent("game").subscribe(data=> this.games=data.json().filter(x => x.status=="released") );
+    
+   }
 
   ngOnInit() {
   }

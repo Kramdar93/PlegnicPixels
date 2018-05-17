@@ -1,3 +1,42 @@
-<p>
-  nav works!
-</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">PlegnicPixels</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="home">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="blog">Blog</a>
+      </li>
+      <!-- 
+      <li class="nav-item dropdown">
+        <a 
+          class="nav-link dropdown-toggle" 
+          routerLink="games" 
+          id="gameDropdown" 
+          aria-haspopup="true" 
+          aria-expanded="false" >
+            Games
+        </a>
+        <div id="game-menu" class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a *ngFor="let g of games"
+            class="dropdown-item"
+            routerLink="games">{{g.title}}</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="games">In Progress</a>
+        </div>
+      </li>
+      -->
+      <li class="nav-item">
+        <a class="nav-link" routerLink="games">Games</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="about">About</a>
+      </li>
+    </ul>
+  </div>
+</nav>

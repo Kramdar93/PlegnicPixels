@@ -2,12 +2,5 @@
     "title":"Test post",
     "date":"2018-05-16",
     "author":"admin",
-    "sections":[
-        {
-            "heading":"test heading", 
-            "text":[
-                "test paragraph."
-            ]
-        }
-    ]
+    "html":"<h1>Test heading</h1>"
 }
