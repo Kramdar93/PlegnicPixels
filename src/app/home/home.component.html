@@ -1,10 +1,9 @@
-<div class="row">
-    <h1>{{blurb.heading}}</h1>
-    <p *ngFor="let s of blurb.subsections">
-        <img *ngIf="s.image" [src]="s.image.src" [alt]="s.image.alt" />
-        <span *ngIf="!s.image">{{s}}</span>
-    </p>
-</div>
+
+<h1>{{blurb.heading}}</h1>
+<p *ngFor="let s of blurb.subsections">
+    <img *ngIf="s.image" [src]="s.image.src" [alt]="s.image.alt" />
+    <span *ngIf="!s.image">{{s}}</span>
+</p>
 
 <div class="row">
 
