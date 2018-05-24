@@ -8,10 +8,10 @@ import { Response, ResponseOptions } from "@angular/http";
 declare var require:any;
 
 //load in test jsons
-var contributors = [require("../../../content/contributors/test.json")]
-var games = [require("../../../content/games/test.json")]
-var blogs = [require("../../../content/blog/test.json")]
-var about = require("../../../content/about/blurb.json")
+var contributors = [require("../../../content/templates/contributor.json")]
+var games = [require("../../../content/templates/game.json")]
+var blogs = [require("../../../content/templates/blog.json")]
+var about = require("../../../content/templates/blurb.json")
 
 @Injectable()
 export class MockContentService {
