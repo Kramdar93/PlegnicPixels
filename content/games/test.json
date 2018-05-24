@@ -3,11 +3,14 @@
     "status":"alpha",
     "version":"0.0.0",
     "releaseDate":"TBD",
+    "screenshots":[
+        {"src":"https://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg","alt":"test image"}
+    ],
     "sections":[
         {
             "heading":"Test Heading",
             "subsections":[
-                {"image":{"src":"http://lh5.ggpht.com/-9sQuDDDDvis/Ur4Zm_a_1rI/AAAAAAAAB0U/fJf_p6YINs0/s1600/Oh%25252Bboy%25252Bphoto%25252Bcomments.jpg","alt":"test image"}},
+                {"image":{"src":"https://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg","alt":"test image"}},
                 "test paragraph"
             ]
         }
