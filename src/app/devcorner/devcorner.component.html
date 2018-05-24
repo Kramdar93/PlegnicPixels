@@ -1,0 +1,29 @@
+<form> <!-- Place in a form to disable backspace navigation when focused. -->
+<div *ngFor="let section of current" class="card">
+  <p>
+    H:<input [(ngModel)]="section.heading" [ngModelOptions]="{standalone:true}" />
+  </p>
+  <p *ngFor="let s of section.subsections; let i = index">
+    <span *ngIf="s.image"> 
+      SRC:<input [(ngModel)]="section.subsections[i].image.src" [ngModelOptions]="{standalone:true}" /> 
+      ALT:<input [(ngModel)]="section.subsections[i].image.alt" [ngModelOptions]="{standalone:true}" /> 
+    </span>
+    <span *ngIf="!s.image">
+      P:<textarea [(ngModel)]="section.subsections[i]" [ngModelOptions]="{standalone:true}" ></textarea> 
+    </span>
+  </p>
+  <p>
+    <button class="btn btn-lg" (click)="section.subsections.push('')">New Paragraph</button>
+    <button class="btn btn-lg" (click)="section.subsections.push({image:{src:'',alt:''}})">New Image</button>
+  </p>
+</div>
+<button class="btn btn-lg" (click)="current.push({heading:'',subsections:[]})">New Section</button>
+<button class="btn btn-lg" (click)="printStuff()">Log Sections</button>
+</form>
+
+<div class="card">
+  <div class="card-body">
+    <h3>Output:</h3>
+    <p>{{text}}</p>
+  </div>
+</div>

@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from "@angular/router";
 import { HttpModule } from "@angular/http";
+import { FormsModule } from "@angular/forms";
 
 import { AppComponent } from './app.component';
 
@@ -13,6 +14,7 @@ import { AboutComponent } from './about/about.component';
 
 import { ContentService } from "./services/content.service";
 import { MockContentService } from "./services/mock-content.service";
+import { DevcornerComponent } from './devcorner/devcorner.component';
 
 @NgModule({
   declarations: [
@@ -21,16 +23,19 @@ import { MockContentService } from "./services/mock-content.service";
     GamesComponent,
     BlogComponent,
     NavComponent,
-    AboutComponent
+    AboutComponent,
+    DevcornerComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
+    FormsModule,
     RouterModule.forRoot([
       {path:"home",component:HomeComponent},
       {path:"blog",component:BlogComponent},
       {path:"games",component:GamesComponent},
       {path:"about",component:AboutComponent},
+      {path:"devcorner",component:DevcornerComponent},
       {path:"",redirectTo:"home",pathMatch:"full"}
     ])
   ],
