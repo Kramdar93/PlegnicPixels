@@ -1,3 +1,4 @@
+
 <!-- Nests and nests and nests of accordions... -->
 
 <div class="accordion" id="accordion">
@@ -49,9 +50,9 @@
                                                 </button>
                                               </h5>
                                         </div>
-                                        <div class="card-body collapse"  id="{{y.year}}{{m.month}}{{d.day}}{{b.id}}collapse" attr.aria-labelledby="{{y.year}}{{m.month}}{{d.day}}{{b.id}}heading" attr.data-parent="#{{y.year}}{{m.month}}{{d.day}}accordion">
+                                        <div class="card-body collapse cardimgfix"  id="{{y.year}}{{m.month}}{{d.day}}{{b.id}}collapse" attr.aria-labelledby="{{y.year}}{{m.month}}{{d.day}}{{b.id}}heading" attr.data-parent="#{{y.year}}{{m.month}}{{d.day}}accordion">
                                           <div *ngFor="let section of b.sections">
-                                            <h2>{{section.heading}}</h2>
+                                            <h3>{{section.heading}}</h3>
                                             <p *ngFor="let s of section.subsections">
                                                 <img *ngIf="s.image" [src]="s.image.src" [alt]="s.image.alt" />
                                                 <span *ngIf="!s.image">{{s}}</span>
