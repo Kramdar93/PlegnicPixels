@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ContentService } from '../services/content.service';
 
 @Component({
   selector: 'app-about',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  constructor() { }
+  contributors:any[];
+  about:any[];
+
+  constructor(private content:ContentService) {
+    content.GetContent("about").subscribe(data=>this.about=data.json());
+    content.GetContent("contributor").subscribe(data=>this.contributors=data.json());
+   }
 
   ngOnInit() {
   }
