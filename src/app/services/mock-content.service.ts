@@ -8,8 +8,8 @@ import { Response, ResponseOptions } from "@angular/http";
 declare var require:any;
 
 //load in test jsons
-var contributors = [require("../../../content/templates/contributor.json")]
-var games = [require("../../../content/templates/game.json")]
+var contributors = require("../../../content/templates/contributor.json")
+var games = require("../../../content/templates/game.json")
 var blogs = require("../../../content/templates/blog.json")
 var about = require("../../../content/templates/blurb.json")
 

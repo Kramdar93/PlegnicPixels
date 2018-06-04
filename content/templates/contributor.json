@@ -1,15 +1,35 @@
-{
-    "name":"Mark",
-    "nick":"addy",
-    "position":"Lead",
-    "email":"test@test",
-    "joined":"1970-01-01",
-    "bio":[
-        {
-            "heading":"Test",
-            "subsections":[
-                "blah"
-            ]
-        }
-    ]
-}
+[
+    
+    {
+        "name":"Mark",
+        "nick":"addy",
+        "position":"Lead",
+        "email":"test@test",
+        "joined":"1970-01-01",
+        "bio":[
+            {
+                "heading":"Test",
+                "subsections":[
+                    "blah"
+                ]
+            }
+        ]
+    },
+
+    {
+        "name":"Mark",
+        "nick":"addy",
+        "position":"Lead",
+        "email":"test@test",
+        "joined":"1970-01-01",
+        "bio":[
+            {
+                "heading":"Test",
+                "subsections":[
+                    "blah"
+                ]
+            }
+        ]
+    }
+
+]

@@ -3,11 +3,12 @@ import { Http,Response,ResponseOptions } from "@angular/http";
 import { tap } from "rxjs/operators";
 import { Observable } from "rxjs/observable";
 import { of } from "rxjs/observable/of";
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class ContentService {
 
-  CGI:string = "http://plegnicpixels.games/content.cgi"
+  CGI:string = environment.production? "http://plegnicpixels.games/content.cgi" : "http://localhost:8080";
 
   //manual cache vars
   blogs:{title:string,date:string,author:string,html:string}[];
@@ -16,7 +17,8 @@ export class ContentService {
   about:{sections:any};
   peel:any[];
 
-  constructor(private http:Http) { }
+  constructor(private http:Http) {
+   }
 
   GetContent(type:"blog"|"game"|"contributor"|"peel"|"about"){
     //manual caching, is this even necessary?
