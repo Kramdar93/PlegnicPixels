@@ -38,13 +38,7 @@ export class MockContentService {
 
   //wraps an object in an http-like response in order to match content service as close as possible.
   WrapObj(obj:any){
-    return of(
-      new Response(
-        new ResponseOptions({
-          body:JSON.stringify(obj)
-        })
-      )
-    );
+    return of(obj); //no need for response wrappers, see content.service
   }
 
 }

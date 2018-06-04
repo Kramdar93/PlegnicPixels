@@ -12,7 +12,7 @@ export class GamesComponent implements OnInit {
 
   constructor(private content:ContentService) {
     content.GetContent("game")
-      .subscribe(data=>this.games=data.json());
+      .subscribe(data=>this.games=data);
    }
 
   ngOnInit() {

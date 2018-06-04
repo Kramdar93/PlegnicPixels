@@ -15,6 +15,7 @@ import { AboutComponent } from './about/about.component';
 import { ContentService } from "./services/content.service";
 import { MockContentService } from "./services/mock-content.service";
 import { DevcornerComponent } from './devcorner/devcorner.component';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { DevcornerComponent } from './devcorner/devcorner.component';
       {path:"",redirectTo:"home",pathMatch:"full"}
     ])
   ],
-  providers: [{provide:ContentService, useClass:MockContentService}],
+  providers: [{provide:ContentService, useClass: environment.production? ContentService : ContentService}], //fancy auto production swap
   bootstrap: [AppComponent]
 })
 export class AppModule { }

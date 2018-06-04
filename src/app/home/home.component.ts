@@ -13,8 +13,9 @@ export class HomeComponent implements OnInit {
   blurb:any;
 
   constructor(private content:ContentService) {
-    content.GetContent("peel").subscribe(data=> this.peels=data.json() );
-    content.GetContent("about").subscribe(data=> this.blurb=data.json().sections[0] );
+    content.GetContent("peel").subscribe(data=> this.peels=data );
+    //have to dereference data since it is every file in content/about even if it is only one file.
+    content.GetContent("about").subscribe(data=> this.blurb=data[0].sections[0] ); 
    }
 
   ngOnInit() {

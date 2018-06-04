@@ -1,13 +1,17 @@
 
-<h1>{{blurb.heading}}</h1>
-<p *ngFor="let s of blurb.subsections">
-    <img *ngIf="s.image" [src]="s.image.src" [alt]="s.image.alt" />
-    <span *ngIf="!s.image">{{s}}</span>
-</p>
+<div *ngIf="blurb">
+    <h1>{{blurb.heading}}</h1>
+    <p *ngFor="let s of blurb.subsections">
+        <img *ngIf="s.image" [src]="s.image.src" [alt]="s.image.alt" />
+        <span *ngIf="!s.image">{{s}}</span>
+    </p>
+</div>
 
 <hr />
 
 <h3>Recent Games</h3>
+
+<div *ngIf="peels">
 
 <div class="row">
 
@@ -56,6 +60,8 @@
             posted on {{b.date}}
         </div>
     </div>
+</div>
+
 </div>
 
 </div>

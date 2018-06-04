@@ -1,7 +1,7 @@
 
 <!-- Nests and nests and nests of accordions... -->
 
-<div class="accordion" id="accordion">
+<div class="accordion" id="accordion" *ngIf="blogs">
     <div *ngFor="let y of blogs"
     class="card">
       <div class="card-header" id="{{y.year}}heading">

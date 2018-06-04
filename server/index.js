@@ -31,7 +31,7 @@ app
     })
     .use("/", (req, res, next) => { //any path just call cgi
         //make cgi process for running a perl script.
-        const child = execFile('perl', ['server/mock-content.cgi',req.query.type], (error, stdout, stderr) => {
+        const child = execFile('perl', ['server/content.cgi',req.query.type], (error, stdout, stderr) => {
             // hopefully the response object is still alive.
             if (error){
                 console.log(error.message);

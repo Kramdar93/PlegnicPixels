@@ -1,23 +1,28 @@
 
-use CGI;                             # load CGI routines
+use CGI;
 use FindBin;                         # find our location
-$q = CGI->new;                       # create new CGI object
+$q = CGI->new("");
 $result = "";                        # string to store result
-$contentFolder = "$FindBin::Bin/../content";
+$contentFolder = $FindBin::Bin;
+$contentFolder =~ s/\/[^\/]*$//;     # manually go up a level...
+$contentFolder = "$contentFolder/content/";
 
 sub getFilesInFolder{
-    opendir(my $dir, $contentFolder.'/'.@_[0]) or die "@{[ $contentFolder.'/'.@_[0] ]}: $!";
+    opendir(my $dir, $contentFolder.@_[0]) or die "@{[ $contentFolder.@_[0] ]}: $!";
     my $res = "";
     my $i = 0;
     while (my $filename = readdir($dir) and (@_[1] < 0 or $i < @_[1]) ) {
+        #print "$filename\n";
+
         if ($i != 0){
-            $res = $res.',';
+            $res = "$res,";
         }
 
-        open(my $file, $contentFolder.'/'.$filename) or next; #die "@{[ $contentFolder.'/'.$filename ]}: $!";
+        open(my $file, $contentFolder.@_[0].'/'.$filename) or next; #(print "@{[ $contentFolder.@_[0].'/'.$filename ]}: $!" and next);
 
         while (my $row = <$file>) {
-            $res = $res.$row;
+            #print "$row\n";
+            $res = "$res $row";
         }
 
         close($file);
@@ -27,11 +32,11 @@ sub getFilesInFolder{
     return $res;
 }
 
-$type = $q->param('type');
+$type = $ARGV[0];
 
 if( $type eq 'peel' ){
     #get only the first few of game and blog
-    $result = "{ games: [".getFilesInFolder('game',10)."], blogs: [".getFilesInFolder('blog',10)."] }";
+    $result = "{ \"games\": [".getFilesInFolder('game',10)."], \"blogs\": [".getFilesInFolder('blog',10)."] }";
 }
 elsif( $type eq 'game' ||
         $type eq 'blog' ||
@@ -50,5 +55,7 @@ else{
     
 }
 
-print $q->header,                    # create the HTTP header
+$result =~ s/\n//g; # remove newlines
+
+print #$q->header,                    # create the HTTP header
     $result;                         # and result.

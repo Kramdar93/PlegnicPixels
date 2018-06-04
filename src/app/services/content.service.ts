@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Http,Response,ResponseOptions } from "@angular/http";
-import { tap } from "rxjs/operators";
+import { Http } from "@angular/http";
+import { tap,map } from "rxjs/operators";
 import { Observable } from "rxjs/observable";
 import { of } from "rxjs/observable/of";
 import { environment } from '../../environments/environment';
@@ -55,18 +55,12 @@ export class ContentService {
         else if(type == "peel"){
           this.peel = data.json();
         }
-      }));
+      }),map(data=>data.json()));
   }
 
   //wraps an object in an http-like response, only needed if we're going to manually cache the data.
   WrapObj(obj:any){
-    return of(
-      new Response(
-        new ResponseOptions({
-          body:JSON.stringify(obj)
-        })
-      )
-    );
+    return of(obj); //we already parsed the data into json so we don't even need the response etc wrappers.
   }
 
 }
