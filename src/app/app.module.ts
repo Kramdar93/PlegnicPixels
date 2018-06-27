@@ -16,6 +16,7 @@ import { ContentService } from "./services/content.service";
 import { MockContentService } from "./services/mock-content.service";
 import { DevcornerComponent } from './devcorner/devcorner.component';
 import { environment } from '../environments/environment';
+import { GamedetailComponent } from './gamedetail/gamedetail.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { environment } from '../environments/environment';
     BlogComponent,
     NavComponent,
     AboutComponent,
-    DevcornerComponent
+    DevcornerComponent,
+    GamedetailComponent
   ],
   imports: [
     BrowserModule,
@@ -34,10 +36,11 @@ import { environment } from '../environments/environment';
     RouterModule.forRoot([
       {path:"home",component:HomeComponent},
       {path:"blog",component:BlogComponent},
-      {path:"games",component:GamesComponent},
       {path:"about",component:AboutComponent},
       {path:"devcorner",component:DevcornerComponent},
-      {path:"",redirectTo:"home",pathMatch:"full"}
+      {path:"games",component:GamesComponent},
+      {path:"games/:id",component:GamedetailComponent},
+      {path:"**",redirectTo:"home"}
     ])
   ],
   providers: [{provide:ContentService, useClass: environment.production? ContentService : ContentService}], //fancy auto production swap

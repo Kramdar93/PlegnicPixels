@@ -12,7 +12,7 @@ export class ContentService {
 
   //manual cache vars
   blogs:{title:string,date:string,author:string,html:string}[];
-  games:{title:string,status:string,version:string,releaseDate:string,sections:any}[];
+  games:{id:number,title:string,status:string,version:string,releaseDate:string,sections:any}[];
   contributors:{name:string,nick:string,position:string,email:string,bio:string}[];
   about:{sections:any};
   peel:any[];
@@ -56,6 +56,11 @@ export class ContentService {
           this.peel = data.json();
         }
       }),map(data=>data.json()));
+  }
+
+  //overload
+  GetIndividualContent(type:"blog"|"game"|"contributor"|"peel"|"about",id:string){
+    return this.GetContent(type).pipe(map(data=>data.find(x=>x.id==id)));
   }
 
   //wraps an object in an http-like response, only needed if we're going to manually cache the data.

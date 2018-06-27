@@ -16,6 +16,8 @@ var about = require("../../../content/templates/blurb.json")
 @Injectable()
 export class MockContentService {
 
+  targetGame:any;
+
   constructor() { }
 
   GetContent(type:"blog"|"game"|"contributor"|"peel"|"about"){
@@ -39,6 +41,15 @@ export class MockContentService {
   //wraps an object in an http-like response in order to match content service as close as possible.
   WrapObj(obj:any){
     return of(obj); //no need for response wrappers, see content.service
+  }
+
+  updateTarget(id:number){
+    if(!games){
+      this.GetContent("game").subscribe(data=>this.updateTarget(id));
+    }
+    else{
+      this.targetGame = games.find(x => x.id == id);
+    }
   }
 
 }
