@@ -1,5 +1,5 @@
 <form> <!-- Place in a form to disable backspace navigation when focused. -->
-<div *ngFor="let section of current" class="card">
+<div *ngFor="let section of current" class="card bg-dark text-light">
   <p>
     H:<input [(ngModel)]="section.heading" [ngModelOptions]="{standalone:true}" />
   </p>
@@ -21,7 +21,7 @@
 <button class="btn btn-lg" (click)="printStuff()">Log Sections</button>
 </form>
 
-<div class="card">
+<div class="card bg-dark text-light">
   <div class="card-body">
     <h3>Output:</h3>
     <p>{{text}}</p>

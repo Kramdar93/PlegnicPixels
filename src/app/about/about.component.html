@@ -2,7 +2,7 @@
 <div *ngFor="let section of about.sections">
   <h3>{{section.heading}}</h3>
   <p *ngFor="let s of section.subsections">
-      <img *ngIf="s.image" [src]="s.image.src" [alt]="s.image.alt" />
+      <img class="img-fluid" *ngIf="s.image" [src]="s.image.src" [alt]="s.image.alt" />
       <span *ngIf="!s.image">{{s}}</span>
   </p>
 </div>
@@ -10,7 +10,7 @@
 
 <div class="row" *ngIf="contributors">
     <div *ngFor="let c of contributors" class="col-md-6 rowgutter">
-        <div class="card">
+        <div class="card bg-dark text-light">
             <div class="card-header">
                 {{c.position}} {{c.name}} ({{c.nick}})
                 <span class="float-right">{{c.email}}</span>
@@ -19,7 +19,7 @@
               <div *ngFor="let section of c.bio">
                 <h3>{{section.heading}}</h3>
                 <p *ngFor="let s of section.subsections">
-                    <img *ngIf="s.image" [src]="s.image.src" [alt]="s.image.alt" />
+                    <img class="cardimgfix img-fluid" *ngIf="s.image" [src]="s.image.src" [alt]="s.image.alt" />
                     <span *ngIf="!s.image">{{s}}</span>
                 </p>
               </div>

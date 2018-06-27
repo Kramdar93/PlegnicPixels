@@ -2,8 +2,7 @@
 <!-- Nests and nests and nests of accordions... -->
 
 <div class="accordion" id="accordion" *ngIf="blogs">
-    <div *ngFor="let y of blogs"
-    class="card">
+    <div *ngFor="let y of blogs" class="card bg-dark text-light">
       <div class="card-header" id="{{y.year}}heading">
         <h5 class="mb-0">
           <button class="btn btn-link" type="button" data-toggle="collapse" attr.data-target="#{{y.year}}collapse" aria-expanded="false" attr.aria-controls="{{y.year}}collapse">
@@ -16,7 +15,7 @@
           
             <div class="accordion" id="{{y.year}}accordion">
                 <div *ngFor="let m of y.months"
-                class="card">
+                class="card bg-dark text-light">
                   <div class="card-header" id="{{y.year}}{{m.month}}heading">
                     <h5 class="mb-0">
                       <button class="btn btn-link" type="button" data-toggle="collapse" attr.data-target="#{{y.year}}{{m.month}}collapse" aria-expanded="false" attr.aria-controls="{{y.year}}{{m.month}}collapse">
@@ -29,7 +28,7 @@
                       
                         <div class="accordion" id="{{y.year}}{{m.month}}accordion">
                             <div *ngFor="let d of m.days"
-                            class="card">
+                            class="card bg-dark text-light ">
                               <div class="card-header" id="{{y.year}}{{m.month}}{{d.day}}heading">
                                 <h5 class="mb-0">
                                   <button class="btn btn-link" type="button" data-toggle="collapse" attr.data-target="#{{y.year}}{{m.month}}{{d.day}}collapse" aria-expanded="false" attr.aria-controls="{{y.year}}{{m.month}}{{d.day}}collapse">
@@ -41,26 +40,28 @@
                                 <div class="card-body">
                                   
                                   <div class="accordion" id="{{y.year}}{{m.month}}{{d.day}}accordion">
-                                    <div *ngFor="let b of d.posts"
-                                    class="card">
-                                        <div class="card-header" id="{{y.year}}{{m.month}}{{d.day}}{{b.id}}heading">
-                                            <h5 class="mb-0">
-                                                <button class="btn btn-link" type="button" data-toggle="collapse" attr.data-target="#{{y.year}}{{m.month}}{{d.day}}{{b.id}}collapse" aria-expanded="false" attr.aria-controls="{{y.year}}{{m.month}}{{d.day}}{{b.id}}collapse"> 
-                                                  {{b.title}}
-                                                </button>
-                                              </h5>
-                                        </div>
-                                        <div class="card-body collapse cardimgfix"  id="{{y.year}}{{m.month}}{{d.day}}{{b.id}}collapse" attr.aria-labelledby="{{y.year}}{{m.month}}{{d.day}}{{b.id}}heading" attr.data-parent="#{{y.year}}{{m.month}}{{d.day}}accordion">
+                                    <div *ngFor="let b of d.posts" class="card bg-dark text-light">
+                                      <div class="card-header" id="{{y.year}}{{m.month}}{{d.day}}{{b.id}}heading">
+                                        <h5 class="mb-0">
+                                          <button class="btn btn-link" type="button" data-toggle="collapse" attr.data-target="#{{y.year}}{{m.month}}{{d.day}}{{b.id}}collapse" aria-expanded="false" attr.aria-controls="{{y.year}}{{m.month}}{{d.day}}{{b.id}}collapse"> 
+                                            {{b.title}}
+                                          </button>
+                                        </h5>
+                                      </div>
+                                      <div class="collapse"  id="{{y.year}}{{m.month}}{{d.day}}{{b.id}}collapse" attr.aria-labelledby="{{y.year}}{{m.month}}{{d.day}}{{b.id}}heading" attr.data-parent="#{{y.year}}{{m.month}}{{d.day}}accordion">
+                                        <div class="card-body cardimgfix">
                                           <div *ngFor="let section of b.sections">
                                             <h3>{{section.heading}}</h3>
                                             <p *ngFor="let s of section.subsections">
-                                                <img *ngIf="s.image" [src]="s.image.src" [alt]="s.image.alt" />
-                                                <span *ngIf="!s.image">{{s}}</span>
+                                              <img class="cardimgfix img-fluid" *ngIf="s.image" [src]="s.image.src" [alt]="s.image.alt" />
+                                              <span *ngIf="!s.image">{{s}}</span>
                                             </p>
                                           </div>
                                         </div>
                                       </div>
                                     </div>
+                                  </div>
+                                  
                                 </div>
                               </div>
                             </div>
