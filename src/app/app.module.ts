@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from "@angular/router";
 import { HttpModule } from "@angular/http";
 import { FormsModule } from "@angular/forms";
+import { CarouselModule } from "ngx-bootstrap";
 
 import { AppComponent } from './app.component';
 
@@ -33,6 +34,7 @@ import { GamedetailComponent } from './gamedetail/gamedetail.component';
     BrowserModule,
     HttpModule,
     FormsModule,
+    CarouselModule.forRoot(),
     RouterModule.forRoot([
       {path:"home",component:HomeComponent},
       {path:"blog",component:BlogComponent},

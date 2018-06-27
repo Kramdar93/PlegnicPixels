@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ContentService } from '../services/content.service';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-gamedetail',
@@ -12,14 +11,19 @@ export class GamedetailComponent implements OnInit {
 
   selectedGame:any;
 
-  constructor(private content:ContentService, private router:Router, private route:ActivatedRoute) {
+  constructor(private content:ContentService, private route:ActivatedRoute) {
+    //first subscribe to parameters being ready
+    this.route.params.subscribe(params => {
+      //then subscribe to getting data
+      this.content.GetIndividualContent('game',params.id).subscribe(data => {
+        //then set it
+        this.selectedGame=data;
+      });
+    });
    }
 
-   ngOnInit() {
-    this.selectedGame = this.route.paramMap.pipe(
-      switchMap((params: ParamMap) =>
-        this.content.GetIndividualContent('game',params.get('id')))
-    );
+  ngOnInit() {
+    //ng tutorial had some fiddly stuff here instead that didn't work.
   }
 
 
