@@ -8,7 +8,7 @@ import { environment } from '../../environments/environment';
 @Injectable()
 export class ContentService {
 
-  CGI:string = environment.production? "http://plegnicpixels.games/content.cgi" : "http://localhost:8080";
+  CGI:string = environment.production? "http://plegnicpixels.games/cgi-bin/content.cgi" : "http://localhost:8080";
 
   //manual cache vars
   blogs:{title:string,date:string,author:string,html:string}[];
