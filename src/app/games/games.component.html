@@ -1,6 +1,6 @@
-<div class="row no-gutters" *ngIf="games">
+<div class="row" *ngIf="games">
 
-<div *ngFor="let g of games" class="col-md-4 rowgutter">
+<div *ngFor="let g of games" class="col-xl-3 col-lg-4 col-md-6 guttercard">
   <a routerLink="{{g.id}}">
     <div class="card bg-dark text-light">
       <img *ngIf="g.screenshots" class="card-img" [src]="g.screenshots[0].src" [alt]="g.screenshots[0].alt">

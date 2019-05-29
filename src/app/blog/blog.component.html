@@ -5,8 +5,8 @@
     <div *ngFor="let y of blogs" class="card bg-dark text-light">
       <div class="card-header" id="heading{{y.year}}">
         <h5 class="mb-0">
-          <button class="btn btn-block btn-secondary" data-toggle="collapse" attr.data-target="#collapse{{y.year}}" aria-expanded="false" attr.aria-controls="collapse{{y.year}}">
-            {{y.year}}
+          <button class="btn btn-dark btn-block text-right" data-toggle="collapse" attr.data-target="#collapse{{y.year}}" aria-expanded="false" attr.aria-controls="collapse{{y.year}}">
+            <span class="badge badge-secondary">{{y.year}}</span>
           </button>
         </h5>
       </div>
@@ -18,8 +18,8 @@
                 class="card bg-dark text-light">
                   <div class="card-header" id="heading{{y.year}}{{m.month}}">
                     <h5 class="mb-0">
-                      <button class="btn btn-block btn-secondary" data-toggle="collapse" attr.data-target="#collapse{{y.year}}{{m.month}}" aria-expanded="false" attr.aria-controls="collapse{{y.year}}{{m.month}}"> 
-                        {{m.month}}
+                      <button class="btn btn-dark btn-block text-right" data-toggle="collapse" attr.data-target="#collapse{{y.year}}{{m.month}}" aria-expanded="false" attr.aria-controls="collapse{{y.year}}{{m.month}}"> 
+                        <span class="badge badge-secondary">{{m.month}}</span>
                       </button>
                     </h5>
                   </div>
@@ -31,8 +31,8 @@
                             class="card bg-dark text-light ">
                               <div class="card-header" id="heading{{y.year}}{{m.month}}{{d.day}}">
                                 <h5 class="mb-0">
-                                  <button class="btn btn-block btn-secondary" data-toggle="collapse" attr.data-target="#collapse{{y.year}}{{m.month}}{{d.day}}" aria-expanded="false" attr.aria-controls="collapse{{y.year}}{{m.month}}{{d.day}}"> 
-                                    {{d.day}}
+                                  <button class="btn btn-dark btn-block text-right" data-toggle="collapse" attr.data-target="#collapse{{y.year}}{{m.month}}{{d.day}}" aria-expanded="false" attr.aria-controls="collapse{{y.year}}{{m.month}}{{d.day}}"> 
+                                    <span class="badge badge-secondary">{{d.day}}</span>
                                   </button>
                                 </h5>
                               </div>
@@ -43,7 +43,7 @@
                                     <div *ngFor="let b of d.posts" class="card bg-dark text-light">
                                       <div class="card-header" id="heading{{y.year}}{{m.month}}{{d.day}}{{b.id}}">
                                         <h5 class="mb-0">
-                                          <button class="btn btn-block btn-secondary" data-toggle="collapse" attr.data-target="#collapse{{y.year}}{{m.month}}{{d.day}}{{b.id}}" aria-expanded="false" attr.aria-controls="collapse{{y.year}}{{m.month}}{{d.day}}{{b.id}}"> 
+                                          <button class="btn btn-dark btn-block" data-toggle="collapse" attr.data-target="#collapse{{y.year}}{{m.month}}{{d.day}}{{b.id}}" aria-expanded="false" attr.aria-controls="collapse{{y.year}}{{m.month}}{{d.day}}{{b.id}}"> 
                                             {{b.title}}
                                           </button>
                                         </h5>

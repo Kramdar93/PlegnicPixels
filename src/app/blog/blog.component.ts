@@ -10,6 +10,8 @@ export class BlogComponent implements OnInit {
 
   blogs:any[] = [];
 
+  monthStrings:String[] = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
   constructor(private content:ContentService) {
     content.GetContent("blog")
     .subscribe( data=> this.organizePosts(data) );
@@ -62,7 +64,28 @@ export class BlogComponent implements OnInit {
       }
     }
 
-    //console.log(this.blogs);
+    //sort it out
+    for(const y of this.blogs){
+      for(const m of y.months){
+        //sort each day's blogs
+        for(const d of m.days){
+          d.posts.sort((x,y)=>x.id-y.id); //sort blogs by id
+        }
+        m.days.sort((x,y)=>x.day-y.day); //sort days
+      }
+      y.months.sort((x,y)=>x.month-y.month); //sort months
+    }
+    this.blogs.sort((x,y)=>x.year-y.year); //sort years
+
+    //replace month words
+    for(const y of this.blogs){
+      for(const m of y.months){
+        //replace with month words
+        if(m.month >= 0 && m.month < this.monthStrings.length){
+          m.month = this.monthStrings[m.month - 1]; // one indexed correction
+        }
+      }
+    }
   }
 
 }
