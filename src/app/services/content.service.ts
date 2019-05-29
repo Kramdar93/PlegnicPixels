@@ -11,8 +11,8 @@ export class ContentService {
   CGI:string = environment.production? "http://plegnicpixels.games/cgi-bin/content.cgi" : "http://localhost:8080";
 
   //manual cache vars
-  blogs:{title:string,date:string,author:string,html:string}[];
-  games:{id:number,title:string,status:string,version:string,releaseDate:string,sections:any}[];
+  blogs:{id:string,title:string,date:string,author:string,sections:string}[];
+  games:{id:string,title:string,status:string,version:string,releaseDate:string,sections:any}[];
   contributors:{name:string,nick:string,position:string,email:string,bio:string}[];
   about:{sections:any};
   peel:any[];

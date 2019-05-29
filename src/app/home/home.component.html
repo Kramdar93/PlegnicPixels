@@ -17,7 +17,7 @@
 
 <div *ngFor="let g of peels.games" class="col-lg-6 guttercard">
     <div class="card bg-dark text-light">
-        <a routerLink="/games/{{g.id}}">
+        <a routerLink="/game/{{g.id}}">
             <div class="card-header text-light">
                 {{g.title}}
                 <span class="badge badge-primary float-right">{{g.status}}</span>
@@ -47,9 +47,11 @@
 
 <div *ngFor="let b of peels.blogs" class="col-lg-6 guttercard">
     <div class="card bg-dark text-light">
-        <div class="card-header">
-            {{b.title}}
-        </div>
+        <a routerLink="/blog/{{b.id}}">
+            <div class="card-header text-light">
+                {{b.title}}
+            </div>
+        </a>
         <div class="card-body cardimgfix">
             <h3>{{b.sections[0].heading}}</h3>
             <p *ngFor="let s of b.sections[0].subsections">

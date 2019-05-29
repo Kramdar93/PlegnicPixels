@@ -1,0 +1,22 @@
+<div class="row justify-content-center">
+  <div class="card bg-dark text-light" *ngIf="blog">
+    <div class="card-header">
+      <h5 class="mb-0">
+          {{blog.title}}
+      </h5>
+    </div>
+    <div class="card-body cardimgfix" >
+      <div *ngFor="let section of blog.sections">
+        <h3>{{section.heading}}</h3>
+        <p *ngFor="let s of section.subsections">
+          <img class="cardimgfix img-fluid" *ngIf="s.image" [src]="s.image.src" [alt]="s.image.alt" />
+          <span *ngIf="!s.image">{{s}}</span>
+        </p>
+      </div>
+    </div>
+    <div class="card-footer">
+        <div class="float-right">posted on {{blog.date}}</div>
+        <div class="float-left">{{blog.author}}</div>
+    </div>
+  </div>
+</div>

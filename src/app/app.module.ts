@@ -18,6 +18,7 @@ import { MockContentService } from "./services/mock-content.service";
 import { DevcornerComponent } from './devcorner/devcorner.component';
 import { environment } from '../environments/environment';
 import { GamedetailComponent } from './gamedetail/gamedetail.component';
+import { BlogdetailComponent } from './blogdetail/blogdetail.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { GamedetailComponent } from './gamedetail/gamedetail.component';
     NavComponent,
     AboutComponent,
     DevcornerComponent,
-    GamedetailComponent
+    GamedetailComponent,
+    BlogdetailComponent
   ],
   imports: [
     BrowserModule,
@@ -37,11 +39,12 @@ import { GamedetailComponent } from './gamedetail/gamedetail.component';
     CarouselModule.forRoot(),
     RouterModule.forRoot([
       {path:"home",component:HomeComponent},
-      {path:"blog",component:BlogComponent},
+      {path:"blogs",component:BlogComponent},
+      {path:"blog/:id",component:BlogdetailComponent},
       {path:"about",component:AboutComponent},
       {path:"devcorner",component:DevcornerComponent},
       {path:"games",component:GamesComponent},
-      {path:"games/:id",component:GamedetailComponent},
+      {path:"game/:id",component:GamedetailComponent},
       {path:"**",redirectTo:"home"}
     ])
   ],
