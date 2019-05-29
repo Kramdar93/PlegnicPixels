@@ -1,54 +1,54 @@
 
 <!-- Nests and nests and nests of accordions... -->
 
-<div class="accordion" id="accordion" *ngIf="blogs">
+<div id="accordion" *ngIf="blogs">
     <div *ngFor="let y of blogs" class="card bg-dark text-light">
-      <div class="card-header" id="{{y.year}}heading">
+      <div class="card-header" id="heading{{y.year}}">
         <h5 class="mb-0">
-          <button class="btn btn-link" type="button" data-toggle="collapse" attr.data-target="#{{y.year}}collapse" aria-expanded="false" attr.aria-controls="{{y.year}}collapse">
+          <button class="btn btn-block btn-secondary" data-toggle="collapse" attr.data-target="#collapse{{y.year}}" aria-expanded="false" attr.aria-controls="collapse{{y.year}}">
             {{y.year}}
           </button>
         </h5>
       </div>
-      <div id="{{y.year}}collapse" class="collapse " attr.aria-labelledby="{{y.year}}heading" data-parent="#accordion">
+      <div id="collapse{{y.year}}" class="collapse" attr.aria-labelledby="heading{{y.year}}" data-parent="#accordion">
         <div class="card-body">
           
-            <div class="accordion" id="{{y.year}}accordion">
+            <div id="accordion{{y.year}}">
                 <div *ngFor="let m of y.months"
                 class="card bg-dark text-light">
-                  <div class="card-header" id="{{y.year}}{{m.month}}heading">
+                  <div class="card-header" id="heading{{y.year}}{{m.month}}">
                     <h5 class="mb-0">
-                      <button class="btn btn-link" type="button" data-toggle="collapse" attr.data-target="#{{y.year}}{{m.month}}collapse" aria-expanded="false" attr.aria-controls="{{y.year}}{{m.month}}collapse">
+                      <button class="btn btn-block btn-secondary" data-toggle="collapse" attr.data-target="#collapse{{y.year}}{{m.month}}" aria-expanded="false" attr.aria-controls="collapse{{y.year}}{{m.month}}"> 
                         {{m.month}}
                       </button>
                     </h5>
                   </div>
-                  <div id="{{y.year}}{{m.month}}collapse" class="collapse " attr.aria-labelledby="{{y.year}}{{m.month}}heading" attr.data-parent="#{{y.year}}accordion">
+                  <div id="collapse{{y.year}}{{m.month}}" class="collapse " attr.aria-labelledby="heading{{y.year}}{{m.month}}" attr.data-parent="#accordion{{y.year}}">
                     <div class="card-body">
                       
-                        <div class="accordion" id="{{y.year}}{{m.month}}accordion">
+                        <div id="accordion{{y.year}}{{m.month}}">
                             <div *ngFor="let d of m.days"
                             class="card bg-dark text-light ">
-                              <div class="card-header" id="{{y.year}}{{m.month}}{{d.day}}heading">
+                              <div class="card-header" id="heading{{y.year}}{{m.month}}{{d.day}}">
                                 <h5 class="mb-0">
-                                  <button class="btn btn-link" type="button" data-toggle="collapse" attr.data-target="#{{y.year}}{{m.month}}{{d.day}}collapse" aria-expanded="false" attr.aria-controls="{{y.year}}{{m.month}}{{d.day}}collapse">
+                                  <button class="btn btn-block btn-secondary" data-toggle="collapse" attr.data-target="#collapse{{y.year}}{{m.month}}{{d.day}}" aria-expanded="false" attr.aria-controls="collapse{{y.year}}{{m.month}}{{d.day}}"> 
                                     {{d.day}}
                                   </button>
                                 </h5>
                               </div>
-                              <div id="{{y.year}}{{m.month}}{{d.day}}collapse" class="collapse " attr.aria-labelledby="{{y.year}}{{m.month}}{{d.day}}heading" attr.data-parent="#{{y.year}}{{m.month}}accordion">
+                              <div id="collapse{{y.year}}{{m.month}}{{d.day}}" class="collapse " attr.aria-labelledby="heading{{y.year}}{{m.month}}{{d.day}}" attr.data-parent="#accordion{{y.year}}{{m.month}}">
                                 <div class="card-body">
                                   
-                                  <div class="accordion" id="{{y.year}}{{m.month}}{{d.day}}accordion">
+                                  <div id="accordion{{y.year}}{{m.month}}{{d.day}}">
                                     <div *ngFor="let b of d.posts" class="card bg-dark text-light">
-                                      <div class="card-header" id="{{y.year}}{{m.month}}{{d.day}}{{b.id}}heading">
+                                      <div class="card-header" id="heading{{y.year}}{{m.month}}{{d.day}}{{b.id}}">
                                         <h5 class="mb-0">
-                                          <button class="btn btn-link" type="button" data-toggle="collapse" attr.data-target="#{{y.year}}{{m.month}}{{d.day}}{{b.id}}collapse" aria-expanded="false" attr.aria-controls="{{y.year}}{{m.month}}{{d.day}}{{b.id}}collapse"> 
+                                          <button class="btn btn-block btn-secondary" data-toggle="collapse" attr.data-target="#collapse{{y.year}}{{m.month}}{{d.day}}{{b.id}}" aria-expanded="false" attr.aria-controls="collapse{{y.year}}{{m.month}}{{d.day}}{{b.id}}"> 
                                             {{b.title}}
                                           </button>
                                         </h5>
                                       </div>
-                                      <div class="collapse"  id="{{y.year}}{{m.month}}{{d.day}}{{b.id}}collapse" attr.aria-labelledby="{{y.year}}{{m.month}}{{d.day}}{{b.id}}heading" attr.data-parent="#{{y.year}}{{m.month}}{{d.day}}accordion">
+                                      <div class="collapse"  id="collapse{{y.year}}{{m.month}}{{d.day}}{{b.id}}" attr.aria-labelledby="heading{{y.year}}{{m.month}}{{d.day}}{{b.id}}" attr.data-parent="#accordion{{y.year}}{{m.month}}{{d.day}}">
                                         <div class="card-body cardimgfix">
                                           <div *ngFor="let section of b.sections">
                                             <h3>{{section.heading}}</h3>
