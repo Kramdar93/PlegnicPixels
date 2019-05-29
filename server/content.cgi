@@ -1,5 +1,5 @@
-#!usr/bin/perl
-use cPanelUserConfig; 
+#!usr/bin/perlml
+#use cPanelUserConfig;
 
 use CGI;
 use FindBin;                         # find our location
