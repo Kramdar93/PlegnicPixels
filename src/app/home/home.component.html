@@ -17,10 +17,12 @@
 
 <div *ngFor="let g of peels.games" class="col-md-6 rowgutter">
     <div class="card bg-dark text-light">
-        <div class="card-header">
-            {{g.title}}
-            <span class="badge badge-primary float-right">{{g.status}}</span>
-        </div>
+        <a routerLink="/games/{{g.id}}">
+            <div class="card-header text-light">
+                {{g.title}}
+                <span class="badge badge-primary float-right">{{g.status}}</span>
+            </div>
+        </a>
         <div class="card-body cardimgfix">
             <h2>{{g.sections[0].heading}}</h2>
             <p *ngFor="let s of g.sections[0].subsections">
