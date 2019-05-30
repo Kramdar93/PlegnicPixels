@@ -1,0 +1,82 @@
+[
+    {
+        "id":0,
+        "title":"test title",
+        "status":"alpha",
+        "version":"0.0.0",
+        "releaseDate":"TBD",
+        "screenshots":[
+            {"src":"https://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg","alt":"test image"},
+            {"src":"https://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg","alt":"test image"}
+        ],
+        "sections":[
+            {
+                "heading":"Test Heading",
+                "subsections":[
+                    {"image":{"src":"https://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg","alt":"test image"}},
+                    "test paragraph"
+                ]
+            }
+        ]
+    },
+    {
+        "id":1,
+        "title":"test title",
+        "status":"alpha",
+        "version":"0.0.0",
+        "releaseDate":"TBD",
+        "screenshots":[
+            {"src":"https://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg","alt":"test image"},
+            {"src":"https://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg","alt":"test image"}
+        ],
+        "sections":[
+            {
+                "heading":"Test Heading",
+                "subsections":[
+                    {"image":{"src":"https://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg","alt":"test image"}},
+                    "test paragraph"
+                ]
+            }
+        ]
+    },
+    {
+        "id":2,
+        "title":"test title",
+        "status":"alpha",
+        "version":"0.0.0",
+        "releaseDate":"TBD",
+        "screenshots":[
+            {"src":"https://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg","alt":"test image"},
+            {"src":"https://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg","alt":"test image"}
+        ],
+        "sections":[
+            {
+                "heading":"Test Heading",
+                "subsections":[
+                    {"image":{"src":"https://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg","alt":"test image"}},
+                    "test paragraph"
+                ]
+            }
+        ]
+    },
+    {
+        "id":3,
+        "title":"test title",
+        "status":"alpha",
+        "version":"0.0.0",
+        "releaseDate":"TBD",
+        "screenshots":[
+            {"src":"https://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg","alt":"test image"},
+            {"src":"https://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg","alt":"test image"}
+        ],
+        "sections":[
+            {
+                "heading":"Test Heading",
+                "subsections":[
+                    {"image":{"src":"https://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg","alt":"test image"}},
+                    "test paragraph"
+                ]
+            }
+        ]
+    }
+]

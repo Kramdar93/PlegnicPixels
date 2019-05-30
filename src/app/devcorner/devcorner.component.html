@@ -9,7 +9,7 @@
       ALT:<input [(ngModel)]="section.subsections[i].image.alt" [ngModelOptions]="{standalone:true}" /> 
     </span>
     <span *ngIf="!s.image">
-      P:<textarea [(ngModel)]="section.subsections[i]" [ngModelOptions]="{standalone:true}" ></textarea> 
+      P:<textarea [(ngModel)]="section.subsections[i]" [ngModelOptions]="{standalone:true,updateOn:'blur'}" ></textarea> 
     </span>
   </p>
   <p>

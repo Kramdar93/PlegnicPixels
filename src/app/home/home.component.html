@@ -25,10 +25,11 @@
         </a>
         <div class="card-body cardimgfix">
             <h2>{{g.sections[0].heading}}</h2>
-            <p *ngFor="let s of g.sections[0].subsections">
+            <div *ngFor="let s of g.sections[0].subsections">
                 <img *ngIf="s.image" class="cardimgfix img-fluid" [src]="s.image.src" [alt]="s.image.alt" />
-                <span *ngIf="!s.image">{{s}}</span>
-            </p>
+                <a *ngIf="s.lonk" [href]="s.lonk.href">{{s.lonk.text}}</a> <!--object prototypes have a link() function so...-->
+                <span *ngIf="!s.image && !s.lonk">{{s}}</span>
+            </div>
             <p class="text-muted">. . .</p>
         </div>
         <div class="card-footer">
@@ -55,8 +56,9 @@
         <div class="card-body cardimgfix">
             <h3>{{b.sections[0].heading}}</h3>
             <p *ngFor="let s of b.sections[0].subsections">
-                <img *ngIf="s.image" [src]="s.image.src" [alt]="s.image.alt" />
-                <span *ngIf="!s.image">{{s}}</span>
+                <img *ngIf="s.image" class="cardimgfix img-fluid" [src]="s.image.src" [alt]="s.image.alt" />
+                <a *ngIf="s.lonk" [href]="s.lonk.href">{{s.lonk.text}}</a> <!--object prototypes have a link() function so...-->
+                <span *ngIf="!s.image && !s.lonk">{{s}}</span>
             </p>
             <p class="text-muted">. . .</p>
         </div>

@@ -3,6 +3,7 @@ const path = require("path");
 const express = require("express");
 const bodyParser = require("body-parser");
 const execFile = require('child_process').execFile;
+const fs = require("fs");
 
 //library instantiations
 const app = express();
@@ -29,15 +30,9 @@ app
         res.header("Access-Control-Allow-Headers","*");
         next();
     })
-    .use("/", (req, res, next) => { //any path just call cgi
-        //make cgi process for running a perl script.
-        const child = execFile('perl', ['server/content.cgi',req.query.type], (error, stdout, stderr) => {
-            // hopefully the response object is still alive.
-            if (error){
-                console.log(error.message);
-            }
-            res.send(stdout);
-          });
+    .use("/", (req, res, next) => {
+        //just return from file in parent folder
+        res.send(fs.readFileSync(process.cwd()+req.path));
     })
     .listen(port);
 

@@ -12,8 +12,8 @@ export class DevcornerComponent implements OnInit {
     {
         heading:"Test Heading",
         subsections:[
-            {image:{src:"https://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg",alt:"test image"}},
-            "test paragraph"
+            //{image:{src:"https://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg",alt:"test image"}},
+            //"test paragraph"
         ]
     }
   ];

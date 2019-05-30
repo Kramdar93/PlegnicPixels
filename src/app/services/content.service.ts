@@ -8,19 +8,18 @@ import { environment } from '../../environments/environment';
 @Injectable()
 export class ContentService {
 
-  CGI:string = environment.production? "http://plegnicpixels.games/cgi-bin/content.cgi" : "http://localhost:8080";
+  path:string = environment.production? "https://plegnicpixels.games/content/" : "http://localhost:8080/content/";
 
   //manual cache vars
   blogs:{id:string,title:string,date:string,author:string,sections:string}[];
   games:{id:string,title:string,status:string,version:string,releaseDate:string,sections:any}[];
   contributors:{name:string,nick:string,position:string,email:string,bio:string}[];
   about:{sections:any};
-  peel:any[];
 
   constructor(private http:Http) {
    }
 
-  GetContent(type:"blog"|"game"|"contributor"|"peel"|"about"){
+  GetContent(type:"blog"|"game"|"contributor"|"about"){
     //manual caching, is this even necessary?
     if(type == "blog" && this.blogs){
       return this.WrapObj(this.blogs);
@@ -34,11 +33,8 @@ export class ContentService {
     else if(type == "about" && this.about){
       return this.WrapObj(this.about);
     }
-    else if(type == "peel" && this.peel){
-      return this.WrapObj(this.peel);
-    }
 
-    return this.http.get(this.CGI,{params:{type:type}})
+    return this.http.get(this.path+type+".json")
       .pipe(tap(data=>{
         if(type == "blog"){
           this.blogs = data.json();
@@ -52,14 +48,11 @@ export class ContentService {
         else if(type == "about"){
           this.about = data.json();
         }
-        else if(type == "peel"){
-          this.peel = data.json();
-        }
       }),map(data=>data.json()));
   }
 
   //overload
-  GetIndividualContent(type:"blog"|"game"|"contributor"|"peel"|"about",id:string){
+  GetIndividualContent(type:"blog"|"game"|"contributor"|"about",id:string){
     return this.GetContent(type).pipe(map(data=>data.find(x=>x.id==id)));
   }
 
