@@ -19,8 +19,9 @@
     <div *ngFor="let section of selectedGame.sections">
       <h3>{{section.heading}}</h3>
       <p *ngFor="let s of section.subsections">
-          <img class="img-fluid" *ngIf="s.image" [src]="s.image.src" [alt]="s.image.alt" />
-          <span *ngIf="!s.image">{{s}}</span>
+          <img *ngIf="s.image" class="cardimgfix img-fluid" [src]="s.image.src" [alt]="s.image.alt" />
+          <a *ngIf="s.lonk" target="_blank" [href]="s.lonk.href">{{s.lonk.text}}</a> <!--object prototypes have a link() function so...-->
+          <span *ngIf="!s.image && !s.lonk">{{s}}</span>
       </p>
     </div>
 

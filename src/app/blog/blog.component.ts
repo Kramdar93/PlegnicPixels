@@ -14,7 +14,10 @@ export class BlogComponent implements OnInit {
 
   constructor(private content:ContentService) {
     content.GetContent("blog")
-    .subscribe( data=> this.organizePosts(data) );
+    .subscribe( data=> {
+      if(Array.isArray(data))
+        this.organizePosts(data);
+    });
    }
 
   ngOnInit() {

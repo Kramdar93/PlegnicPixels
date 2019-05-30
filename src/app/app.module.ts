@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from "@angular/router";
-import { HttpModule } from "@angular/http";
+import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
 import { CarouselModule } from "ngx-bootstrap";
 
@@ -34,7 +34,7 @@ import { BlogdetailComponent } from './blogdetail/blogdetail.component';
   ],
   imports: [
     BrowserModule,
-    HttpModule,
+    HttpClientModule,
     FormsModule,
     CarouselModule.forRoot(),
     RouterModule.forRoot([

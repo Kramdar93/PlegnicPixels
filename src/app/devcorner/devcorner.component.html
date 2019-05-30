@@ -8,13 +8,18 @@
       SRC:<input [(ngModel)]="section.subsections[i].image.src" [ngModelOptions]="{standalone:true}" /> 
       ALT:<input [(ngModel)]="section.subsections[i].image.alt" [ngModelOptions]="{standalone:true}" /> 
     </span>
-    <span *ngIf="!s.image">
+    <span *ngIf="s.lonk"> 
+        HREF:<input [(ngModel)]="section.subsections[i].lonk.href" [ngModelOptions]="{standalone:true}" /> 
+        TEXT:<input [(ngModel)]="section.subsections[i].lonk.text" [ngModelOptions]="{standalone:true}" /> 
+      </span>
+    <span *ngIf="!s.image && !s.lonk">
       P:<textarea [(ngModel)]="section.subsections[i]" [ngModelOptions]="{standalone:true,updateOn:'blur'}" ></textarea> 
     </span>
   </p>
   <p>
     <button class="btn btn-lg" (click)="section.subsections.push('')">New Paragraph</button>
     <button class="btn btn-lg" (click)="section.subsections.push({image:{src:'',alt:''}})">New Image</button>
+    <button class="btn btn-lg" (click)="section.subsections.push({lonk:{href:'',text:''}})">New Image</button>
   </p>
 </div>
 <button class="btn btn-lg" (click)="current.push({heading:'',subsections:[]})">New Section</button>

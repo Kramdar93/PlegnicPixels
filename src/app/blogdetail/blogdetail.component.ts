@@ -13,7 +13,6 @@ export class BlogdetailComponent implements OnInit {
 
   constructor(private content:ContentService, private route:ActivatedRoute) {
     this.route.params.subscribe(params => {
-      console.log(params.id);
       content.GetIndividualContent("blog", params.id)
         .subscribe( data=> this.blog = data );
     });

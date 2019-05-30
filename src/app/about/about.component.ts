@@ -9,11 +9,14 @@ import { ContentService } from '../services/content.service';
 export class AboutComponent implements OnInit {
 
   contributors:any[];
-  about:any[];
+  about:any;
 
   constructor(private content:ContentService) {
     content.GetContent("about").subscribe(data=>this.about=data[0]);
-    content.GetContent("contributor").subscribe(data=>this.contributors=data);
+    content.GetContent("contributor").subscribe(data=>{
+      if(Array.isArray(data))
+        this.contributors=data;
+    });
    }
 
   ngOnInit() {

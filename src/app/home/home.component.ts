@@ -16,10 +16,19 @@ export class HomeComponent implements OnInit {
   blurb:any;
 
   constructor(private content:ContentService) {
-    content.GetContent("blog").subscribe(data=> this.peels.blogs=data.map(d=>this.trimSubsections(d)).slice(0,this.numBlogs));
-    content.GetContent("game").subscribe(data=> this.peels.games=data.map(d=>this.trimSubsections(d)).slice(0,this.numGames));
+    content.GetContent("blog").subscribe(data=> {
+      if(Array.isArray(data))
+        this.peels.blogs=data.map(d=>this.trimSubsections(d)).slice(0,this.numBlogs);
+    });
+    content.GetContent("game").subscribe(data=> {
+      if(Array.isArray(data))
+        this.peels.games=data.map(d=>this.trimSubsections(d)).slice(0,this.numGames);
+    });
     //have to dereference data since it is every file in content/about even if it is only one file. Variety!
-    content.GetContent("about").subscribe(data=> this.blurb=data[Math.floor(Math.random()*data.length)].sections[0] ); 
+    content.GetContent("about").subscribe(data=> {
+      if(Array.isArray(data))
+        this.blurb=data[Math.floor(Math.random()*data.length)].sections[0] 
+    }); 
    }
 
   ngOnInit() {
