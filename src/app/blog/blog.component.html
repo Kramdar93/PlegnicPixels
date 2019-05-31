@@ -50,7 +50,7 @@
                                       </div>
                                       <div class="collapse"  id="collapse{{y.year}}{{m.month}}{{d.day}}{{b.id}}" attr.aria-labelledby="heading{{y.year}}{{m.month}}{{d.day}}{{b.id}}" attr.data-parent="#accordion{{y.year}}{{m.month}}{{d.day}}">
                                         <div class="card-body cardimgfix">
-                                          <div *ngFor="let section of b.sections">
+                                          <div *ngFor="let section of b.sections" class="section">
                                             <h3>{{section.heading}}</h3>
                                             <p *ngFor="let s of section.subsections">
                                                 <img *ngIf="s.image" class="cardimgfix img-fluid" [src]="s.image.src" [alt]="s.image.alt" />
@@ -61,7 +61,7 @@
                                         </div>
                                         <div class="card-footer">
                                             <div class="float-right">posted on {{b.date}}</div>
-                                            <div class="float-left">{{b.author}}</div>
+                                            <div>{{b.author}}</div>
                                         </div>
                                       </div>
                                     </div>

@@ -16,7 +16,7 @@
 
   <div class="row">
 
-    <div *ngFor="let section of selectedGame.sections">
+    <div *ngFor="let section of selectedGame.sections" class="section">
       <h3>{{section.heading}}</h3>
       <p *ngFor="let s of section.subsections">
           <img *ngIf="s.image" class="cardimgfix img-fluid" [src]="s.image.src" [alt]="s.image.alt" />

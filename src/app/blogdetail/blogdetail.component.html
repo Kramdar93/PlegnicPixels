@@ -6,7 +6,7 @@
       </h5>
     </div>
     <div class="card-body cardimgfix" >
-      <div *ngFor="let section of blog.sections">
+      <div *ngFor="let section of blog.sections" class="section">
         <h3>{{section.heading}}</h3>
         <p *ngFor="let s of section.subsections">
             <img *ngIf="s.image" class="cardimgfix img-fluid" [src]="s.image.src" [alt]="s.image.alt" />
@@ -17,7 +17,7 @@
     </div>
     <div class="card-footer">
         <div class="float-right">posted on {{blog.date}}</div>
-        <div class="float-left">{{blog.author}}</div>
+        <div>{{blog.author}}</div>
     </div>
   </div>
 </div>

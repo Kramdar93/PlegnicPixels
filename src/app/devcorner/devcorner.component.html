@@ -1,5 +1,5 @@
 <form> <!-- Place in a form to disable backspace navigation when focused. -->
-<div *ngFor="let section of current" class="card bg-dark text-light">
+<div *ngFor="let section of current" class="card bg-dark text-light section">
   <p>
     H:<input [(ngModel)]="section.heading" [ngModelOptions]="{standalone:true}" />
   </p>
