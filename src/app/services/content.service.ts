@@ -14,7 +14,16 @@ export class ContentService {
    }
 
   GetContent(type:"blog"|"game"|"contributor"|"about"){
-    return this.http.get(this.path+type+".json");
+    return this.http.get(this.path+type+".json").pipe(map(data=>{
+      if(Array.isArray(data)){
+        if(data[0].hasOwnProperty("id"))
+          data.sort(function(a,b){return b.id-a.id}); // reverse sort by content id to see most recent
+        return data;
+      } else {
+        console.error("Tried to get an array from a non array-type content source?");
+        return null;
+      } 
+    }));
   }
 
   //overload

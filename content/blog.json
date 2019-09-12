@@ -8,21 +8,21 @@
     },
     {
         "id":1,
-        "title":"Alpha Site Launched!",
+        "title":"Beta Site Launched!",
         "date":"2019-5-30",
         "author":"Kramdar",
         "sections":[{"heading":"Hello, World!","subsections":[{"image":{"src":"images/MonkiesWorking.png","alt":"Under Construction!"}},"It has been a long road to get here, and most of it was spent off trail. I finally found the time to navigate back and now the site is at a point of minimum functionality that I'm ready to deploy it.","Things will be sparse for a while as I work on adding content, linking to previous projects, and of course bug fixing. If you would like to contribute please contact me by the email on the about page or by submitting a pull request to this website's GitHub page:",{"lonk":{"href":"https://github.com/Kramdar93/PlegnicPixels","text":"PlegnicPixels website on GitHub"}}]}]
     },
     {
         "id":2,
-        "title":"Alpha Site Launched!",
+        "title":"Gamma Site Launched!",
         "date":"2019-5-30",
         "author":"Kramdar",
         "sections":[{"heading":"Hello, World!","subsections":[{"image":{"src":"images/MonkiesWorking.png","alt":"Under Construction!"}},"It has been a long road to get here, and most of it was spent off trail. I finally found the time to navigate back and now the site is at a point of minimum functionality that I'm ready to deploy it.","Things will be sparse for a while as I work on adding content, linking to previous projects, and of course bug fixing. If you would like to contribute please contact me by the email on the about page or by submitting a pull request to this website's GitHub page:",{"lonk":{"href":"https://github.com/Kramdar93/PlegnicPixels","text":"PlegnicPixels website on GitHub"}}]}]
     },
     {
         "id":3,
-        "title":"Alpha Site Launched!",
+        "title":"Delta Site Launched!",
         "date":"2019-5-30",
         "author":"Kramdar",
         "sections":[{"heading":"Hello, World!","subsections":[{"image":{"src":"images/MonkiesWorking.png","alt":"Under Construction!"}},"It has been a long road to get here, and most of it was spent off trail. I finally found the time to navigate back and now the site is at a point of minimum functionality that I'm ready to deploy it.","Things will be sparse for a while as I work on adding content, linking to previous projects, and of course bug fixing. If you would like to contribute please contact me by the email on the about page or by submitting a pull request to this website's GitHub page:",{"lonk":{"href":"https://github.com/Kramdar93/PlegnicPixels","text":"PlegnicPixels website on GitHub"}}]}]
