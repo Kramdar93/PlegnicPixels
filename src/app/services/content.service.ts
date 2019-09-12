@@ -8,13 +8,13 @@ import { environment } from '../../environments/environment';
 @Injectable()
 export class ContentService {
 
-  path:string = environment.production? "https://plegnicpixels.games/content/" : "http://localhost:8080/content/";
+  CGI:string = environment.production? "https://plegnicpixels.games/cgi-bin/content.cgi" : "http://localhost:8080/";
 
   constructor(private http:HttpClient) {
    }
 
   GetContent(type:"blog"|"game"|"contributor"|"about"){
-    return this.http.get(this.path+type+".json").pipe(map(data=>{
+      return this.http.get(this.CGI+"?type="+type).pipe(map(data=>{
       if(Array.isArray(data)){
         if(data[0].hasOwnProperty("id"))
           data.sort(function(a,b){return b.id-a.id}); // reverse sort by content id to see most recent

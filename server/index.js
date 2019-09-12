@@ -30,10 +30,23 @@ app
         res.header("Access-Control-Allow-Headers","*");
         next();
     })
-    .use("/", (req, res, next) => {
-        //just return from file in parent folder
-        res.send(fs.readFileSync(process.cwd()+req.path));
+    .use("/", (req, res, next) => { //any path just call cgi
+        //make cgi process for running a perl script.
+        console.log('taking request...');
+        if(typeof res.query !== 'undefined' && typeof res.query.type !== 'undefined')
+            console.log("type: "+res.query.type);
+        const child = execFile('perl', ['server/content.cgi',req.query.type], (error, stdout, stderr) => {
+            // hopefully the response object is still alive.
+            if (error){
+                console.log(error.message);
+            }
+            res.send(stdout);
+        });
     })
+    // .use("/", (req, res, next) => {
+    //     //just return from file in parent folder
+    //     res.send(fs.readFileSync(process.cwd()+req.path));
+    // })
     .listen(port);
 
 //remind the developer of our url

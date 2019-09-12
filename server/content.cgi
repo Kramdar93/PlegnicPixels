@@ -1,40 +1,52 @@
-#!usr/bin/perlml
-#use cPanelUserConfig;
-
+#!/usr/bin/perl
+use strict;
+use warnings;
+use Cwd;
 use CGI;
-use FindBin;                         # find our location
-$q = CGI->new("");
-$result = "";                        # string to store result
-$contentFolder = $FindBin::Bin;
-$contentFolder =~ s/\/[^\/]*$//;     # manually go up a level...
-$contentFolder = "$contentFolder/content/";
+
+my $contentFolder = cwd.'/content';
+my $q = CGI->new;
+$q or sendResponse('bad state: could not create CGI object!');
+#$ARGV > 0 or sendResponse('bad state: could not create CGI object!'); #local testing only
+
+sub sendResponse{
+    print @_[0];
+    return;
+}
 
 sub getFilesInFolder{
-    opendir(my $dir, $contentFolder.@_[0]) or die "@{[ $contentFolder.@_[0] ]}: $!";
+    my $folder = @_[0];
+    my $limit = @_[1];
     my $res = "";
     my $i = 0;
-    while (my $filename = readdir($dir) and (@_[1] < 0 or $i < @_[1]) ) {
-        #print "$filename\n";
+    
+    opendir(my $dir, "$contentFolder/$folder") or sendResponse("$contentFolder/$folder: $!");
 
+    while (my $filename = readdir($dir) and ($limit < 0 or $i < $limit) ) {
+        ($filename ne '.' and $filename ne '..') or next;
+        
         if ($i != 0){
             $res = "$res,";
         }
 
-        open(my $file, $contentFolder.@_[0].'/'.$filename) or next; #(print "@{[ $contentFolder.@_[0].'/'.$filename ]}: $!" and next);
+        open(my $file, "$contentFolder/$folder/$filename") or next;
 
         while (my $row = <$file>) {
-            #print "$row\n";
             $res = "$res $row";
         }
 
         close($file);
         $i = $i + 1;
     }
+    
     closedir($dir);
+    
     return $res;
 }
 
-$type = $ARGV[0];
+my $result = "";      # string to store result
+my $type = $q->url_param('type');  # what to get
+#$type or $type = @ARGV[0]; #testing fallback
 
 if( $type eq 'peel' ){
     #get only the first few of game and blog
@@ -54,10 +66,6 @@ else{
     else{
         $result = "no parameter of name 'type'";
     }
-    
 }
 
-$result =~ s/\n//g; # remove newlines
-
-print #$q->header,                    # create the HTTP header
-    $result;                         # and result.
+sendResponse($result);
