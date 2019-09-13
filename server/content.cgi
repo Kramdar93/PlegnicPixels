@@ -4,11 +4,12 @@ use warnings;
 use Cwd;
 use CGI;
 
-my $contentFolder = cwd.'/content';
-my $q = CGI->new;
-$q or sendResponse('bad state: could not create CGI object!');
+my $contentFolder = cwd."/content";
+my $cgi = CGI->new;
+$cgi or sendResponse("bad state: could not create CGI object!");
 
 sub sendResponse{
+    print "Content-type: text/html\n\n";
     print @_[0];
     return;
 }
@@ -22,7 +23,7 @@ sub getFilesInFolder{
     opendir(my $dir, "$contentFolder/$folder") or sendResponse("$contentFolder/$folder: $!");
 
     while (my $filename = readdir($dir) and ($limit < 0 or $i < $limit) ) {
-        ($filename ne '.' and $filename ne '..') or next;
+        ($filename ne "." and $filename ne "..") or next;
         
         if ($i != 0){
             $res = "$res,";
@@ -44,16 +45,16 @@ sub getFilesInFolder{
 }
 
 my $result = "";      # string to store result
-my $type = $q->url_param('type');  # what to get
+my $type = $cgi->url_param("type");  # what to get
 
-if( $type eq 'peel' ){
+if( $type eq "peel" ){
     #get only the first few of game and blog
-    $result = "{ \"games\": [".getFilesInFolder('game',10)."], \"blogs\": [".getFilesInFolder('blog',10)."] }";
+    $result = "{ \"games\": [".getFilesInFolder("game",10)."], \"blogs\": [".getFilesInFolder("blog",10)."] }";
 }
-elsif( $type eq 'game' ||
-        $type eq 'blog' ||
-        $type eq 'about' ||
-        $type eq 'contributor'  ){
+elsif( $type eq "game" ||
+        $type eq "blog" ||
+        $type eq "about" ||
+        $type eq "contributor"  ){
     #get all of designated folder
     $result = "[ ".getFilesInFolder($type,-1)." ]";
 }
