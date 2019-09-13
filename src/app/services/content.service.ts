@@ -8,7 +8,7 @@ import { environment } from '../../environments/environment';
 @Injectable()
 export class ContentService {
 
-  CGI:string = environment.production? "https://plegnicpixels.games/cgi-bin/content.cgi" : "http://localhost:8080/";
+  CGI:string = environment.production? "https://plegnicpixels.games/cgi-bin/content.pl" : "http://localhost:8080/";
 
   constructor(private http:HttpClient) {
    }
