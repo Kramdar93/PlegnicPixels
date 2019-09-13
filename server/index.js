@@ -33,9 +33,18 @@ app
     .use("/", (req, res, next) => { //any path just call cgi
         //make cgi process for running a perl script.
         console.log('taking request...');
-        if(typeof res.query !== 'undefined' && typeof res.query.type !== 'undefined')
-            console.log("type: "+res.query.type);
-        const child = execFile('perl', ['server/content.cgi',req.query.type], (error, stdout, stderr) => {
+        console.log(req.query);
+        console.log(res.query);
+        if(typeof req.query !== 'undefined' && typeof req.query.type !== 'undefined')
+            console.log("type: "+req.query.type);
+        else if(typeof req.query === 'undefined') req.query = {type:''};
+        else req.query.type = '';
+
+        // mock GET request environment variables for script to pick up (with CGI)
+        process.env['QUERY_STRING'] = 'type='+req.query.type;
+        process.env['REQUEST_METHOD'] = 'GET';
+
+        const child = execFile('perl', ['server/content.cgi'], (error, stdout, stderr) => {
             // hopefully the response object is still alive.
             if (error){
                 console.log(error.message);

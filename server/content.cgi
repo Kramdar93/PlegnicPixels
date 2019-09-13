@@ -7,7 +7,6 @@ use CGI;
 my $contentFolder = cwd.'/content';
 my $q = CGI->new;
 $q or sendResponse('bad state: could not create CGI object!');
-#$ARGV > 0 or sendResponse('bad state: could not create CGI object!'); #local testing only
 
 sub sendResponse{
     print @_[0];
@@ -46,7 +45,6 @@ sub getFilesInFolder{
 
 my $result = "";      # string to store result
 my $type = $q->url_param('type');  # what to get
-#$type or $type = @ARGV[0]; #testing fallback
 
 if( $type eq 'peel' ){
     #get only the first few of game and blog
