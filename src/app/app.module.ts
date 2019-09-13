@@ -18,7 +18,6 @@ import { MockContentService } from "./services/mock-content.service";
 import { DevcornerComponent } from './devcorner/devcorner.component';
 import { environment } from '../environments/environment';
 import { GamedetailComponent } from './gamedetail/gamedetail.component';
-import { BlogdetailComponent } from './blogdetail/blogdetail.component';
 
 @NgModule({
   declarations: [
@@ -29,8 +28,7 @@ import { BlogdetailComponent } from './blogdetail/blogdetail.component';
     NavComponent,
     AboutComponent,
     DevcornerComponent,
-    GamedetailComponent,
-    BlogdetailComponent
+    GamedetailComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +38,7 @@ import { BlogdetailComponent } from './blogdetail/blogdetail.component';
     RouterModule.forRoot([
       {path:"home",component:HomeComponent},
       {path:"blogs",component:BlogComponent},
-      {path:"blog/:id",component:BlogdetailComponent},
+      {path:"blog/:id",component:BlogComponent},
       {path:"about",component:AboutComponent},
       {path:"devcorner",component:DevcornerComponent},
       {path:"games",component:GamesComponent},

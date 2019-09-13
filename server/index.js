@@ -44,12 +44,12 @@ app
         process.env['QUERY_STRING'] = 'type='+req.query.type;
         process.env['REQUEST_METHOD'] = 'GET';
 
-        const child = execFile('perl', ['server/content.cgi'], (error, stdout, stderr) => {
+        const child = execFile('perl', ['server/content.pl'], (error, stdout, stderr) => {
             // hopefully the response object is still alive.
             if (error){
                 console.log(error.message);
             }
-            res.send(stdout);
+            res.send(stdout.replace(/^\s*Content-type:[^\n]*\n/,'')); // remove content-type header since it is redundant in this context.
         });
     })
     // .use("/", (req, res, next) => {

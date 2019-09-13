@@ -1,0 +1,16 @@
+
+    {
+        "name":"Mark's Clone",
+        "nick":"addy",
+        "position":"Lead",
+        "email":"test@test",
+        "joined":"last week",
+        "bio":[
+            {
+                "heading":"Test",
+                "subsections":[
+                    "blah"
+                ]
+            }
+        ]
+    }

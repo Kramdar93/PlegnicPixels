@@ -6,7 +6,7 @@
       <img *ngIf="g.screenshots" class="card-img" [src]="g.screenshots[0].src" [alt]="g.screenshots[0].alt">
       <div class="card-img-overlay">
         <h5 class="card-title text-light">
-          {{g.title}}
+          <span class="text-over-image">{{g.title}}</span>
           <span class="badge badge-primary float-right">{{g.status}}</span>
         </h5>
       </div>

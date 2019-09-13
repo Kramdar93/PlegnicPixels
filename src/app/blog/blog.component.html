@@ -10,7 +10,7 @@
           </button>
         </h5>
       </div>
-      <div id="collapse{{y.year}}" class="collapse" attr.aria-labelledby="heading{{y.year}}" data-parent="#accordion">
+      <div id="collapse{{y.year}}" class="collapse {{y.shouldShow ? 'show' : ''}}" attr.aria-labelledby="heading{{y.year}}" data-parent="#accordion">
         <div class="card-body">
           
             <div id="accordion{{y.year}}">
@@ -23,7 +23,7 @@
                       </button>
                     </h5>
                   </div>
-                  <div id="collapse{{y.year}}{{m.month}}" class="collapse " attr.aria-labelledby="heading{{y.year}}{{m.month}}" attr.data-parent="#accordion{{y.year}}">
+                  <div id="collapse{{y.year}}{{m.month}}" class="collapse {{m.shouldShow ? 'show' : ''}}" attr.aria-labelledby="heading{{y.year}}{{m.month}}" attr.data-parent="#accordion{{y.year}}">
                     <div class="card-body">
                       
                         <div id="accordion{{y.year}}{{m.month}}">
@@ -36,7 +36,7 @@
                                   </button>
                                 </h5>
                               </div>
-                              <div id="collapse{{y.year}}{{m.month}}{{d.day}}" class="collapse " attr.aria-labelledby="heading{{y.year}}{{m.month}}{{d.day}}" attr.data-parent="#accordion{{y.year}}{{m.month}}">
+                              <div id="collapse{{y.year}}{{m.month}}{{d.day}}" class="collapse {{d.shouldShow ? 'show' : ''}}" attr.aria-labelledby="heading{{y.year}}{{m.month}}{{d.day}}" attr.data-parent="#accordion{{y.year}}{{m.month}}">
                                 <div class="card-body">
                                   
                                   <div id="accordion{{y.year}}{{m.month}}{{d.day}}">
@@ -48,7 +48,7 @@
                                           </button>
                                         </h5>
                                       </div>
-                                      <div class="collapse"  id="collapse{{y.year}}{{m.month}}{{d.day}}{{b.id}}" attr.aria-labelledby="heading{{y.year}}{{m.month}}{{d.day}}{{b.id}}" attr.data-parent="#accordion{{y.year}}{{m.month}}{{d.day}}">
+                                      <div id="collapse{{y.year}}{{m.month}}{{d.day}}{{b.id}}" class="collapse {{b.shouldShow ? 'show' : ''}}" attr.aria-labelledby="heading{{y.year}}{{m.month}}{{d.day}}{{b.id}}" attr.data-parent="#accordion{{y.year}}{{m.month}}{{d.day}}">
                                         <div class="card-body cardimgfix">
                                           <div *ngFor="let section of b.sections" class="section">
                                             <h3>{{section.heading}}</h3>
