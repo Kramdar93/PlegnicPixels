@@ -15,3 +15,7 @@
 .section{
     width:100%;
 }
+
+.closelines p{
+    margin-bottom:0;
+}

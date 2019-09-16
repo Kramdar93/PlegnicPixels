@@ -13,8 +13,21 @@
   </div>
 
   <hr />
+  
+  <div class="row guttercard">
+    <div class="card bg-dark col-sm-6 col-md-4 col-lg-3">
+      <div class="card-header"><h5>{{selectedGame.title}}</h5></div>
+      <div class="card-body closelines">
+          <p>Version: {{selectedGame.version}}&nbsp;<span class="badge badge-primary">{{selectedGame.status}}</span></p>
+          <p>Release Date: {{selectedGame.releaseDate}}</p>
+          <p>Genre: {{selectedGame.genre}}</p>
+      </div>
+    </div>
+  </div>
 
-  <div class="row">
+  <hr />
+
+  <div class="row guttercard">
 
     <div *ngFor="let section of selectedGame.sections" class="section">
       <h3>{{section.heading}}</h3>

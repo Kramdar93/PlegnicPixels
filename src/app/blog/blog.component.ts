@@ -87,7 +87,8 @@ export class BlogComponent implements OnInit {
         let mShow = false;
         //sort each day's blogs
         for(const d of m.days){
-          d.posts.sort((x,y)=>x.id-y.id); //sort blogs by id
+          //don't sort this since ids are non sequential. also content service sorts these.
+          //TODO: optimize this sorting based on the work content service already did...
           if(d.posts.some((x)=>x.shouldShow)){
             d.shouldShow = true;
             mShow = true;

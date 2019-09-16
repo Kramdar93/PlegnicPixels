@@ -4,6 +4,7 @@ import { tap,map } from "rxjs/operators";
 import { Observable } from "rxjs/observable";
 import { of } from "rxjs/observable/of";
 import { environment } from '../../environments/environment';
+import { parse } from 'url';
 
 @Injectable()
 export class ContentService {
@@ -73,36 +74,64 @@ export class ContentService {
   SortBySomeMeans(data:any[]){
     if(data[0].hasOwnProperty("date")){
       data.sort(function(a,b){
-        let aDate:Date = new Date(a.date);
-        let bDate:Date = new Date(b.date);
-        return bDate.getTime() - aDate.getTime();
+        let aTime:number = DateStringToNumber(a.date);
+        let bTime:number = DateStringToNumber(b.date);
+        let result = bTime - aTime;
+        return result == 0? FinalLexicographicSort(a,b) : result;
       }); // try reverse sort by date
       return;
     }
     if(data[0].hasOwnProperty("joined")){
       data.sort(function(a,b){
-        let aDate:Date = new Date(a.joined);
-        let bDate:Date = new Date(b.joined);
-        return bDate.getTime() - aDate.getTime();
+        let aTime:number = DateStringToNumber(a.joined);
+        let bTime:number = DateStringToNumber(b.joined);
+        let result = bTime - aTime;
+        return result == 0? FinalLexicographicSort(a,b) : result;
       }); // try reverse sort by join date
       return;
     }
     if(data[0].hasOwnProperty("releaseDate")){ // this is _could_ be a date
       data.sort(function(a,b){
-        let aTime:number = Date.parse(a.releaseDate);
-        let bTime:number = Date.parse(b.releaseDate);
-        if(aTime != NaN && bTime != NaN){
-          return bTime - aTime;
-        } else if (aTime == NaN && bTime != NaN){ // b is not date, place before a.
-          return 1;
-        } else if (aTime != NaN && bTime == NaN){ // a is not date, place before b.
-          return -1;
-        } else { // both not dates so sort alphabetically (even though it is probably just 'TBD')
-          return a.releaseDate < b.releaseDate ? -1 : a.releaseDate > b.releaseDate ? 1 : 0;
+        let aTime:number = DateStringToNumber(a.releaseDate);
+        let bTime:number = DateStringToNumber(b.releaseDate);
+        let result: number = 0;
+        if(!isNaN(aTime) && !isNaN(bTime)){
+          result = bTime - aTime;
+        } else if (isNaN(aTime) && !isNaN(bTime)){ // a is not date, place before b.
+          result = -1;
+        } else if (!isNaN(aTime) && isNaN(bTime)){ // b is not date, place before a.
+          result = 1;
+        } else { // both not dates so... 
+          // sort lexicographically if different (even though it is probably just 'TBD' and would also work for the yyy-mm-dd format)
+          result = a.releaseDate < b.releaseDate ? -1 : a.releaseDate > b.releaseDate ? 1 : 0;
         }
+
+        // the temporal reference we found is equal! so do some secondary sorting attempts.
+        return result == 0? FinalLexicographicSort(a,b) : result;
       }); // try reverse sort by releaseDate
-      return;
+      
     }
     //else don't sort because there is no temporal reference eg about blurbs.
   }
+}
+
+function FinalLexicographicSort(a:any,b:any){
+  //sort by title if it exists
+  if(a.hasOwnProperty("title") && b.hasOwnProperty("title")){
+    return a.title.localeCompare(b.title);
+  } else if(a.hasOwnProperty("name") && b.hasOwnProperty("name")){
+    return a.title.localeCompare(b.title);
+  }
+  // otherwise it's all the same to me!
+  return 0;
+}
+
+// expect a standard YYYY-MM-DD format date to transform and return as millisec value, otherwise return NaN
+function DateStringToNumber(str:String){
+  let tokens = str.split('-').map(x=>parseInt(x));
+  if(tokens.length != 3 || tokens.some(x=>x==NaN)){
+    return NaN; // can't parse, return NaN
+  }
+  let date = new Date(tokens[0],tokens[1]+1,tokens[2]); 
+  return date.getTime(); // this method only converts to a number for comparison purposes so that's really all we need.
 }
