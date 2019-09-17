@@ -132,6 +132,6 @@ function DateStringToNumber(str:String){
   if(tokens.length != 3 || tokens.some(x=>x==NaN)){
     return NaN; // can't parse, return NaN
   }
-  let date = new Date(tokens[0],tokens[1]+1,tokens[2]); 
+  let date = new Date(tokens[0],tokens[1]-1,tokens[2]); //zero indexed months, others are one indexed.
   return date.getTime(); // this method only converts to a number for comparison purposes so that's really all we need.
 }
